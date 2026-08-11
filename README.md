@@ -88,8 +88,8 @@ window.ShowNetTransfer=true;
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/nezha-style.css">
 /* 自用的探针修改 */
 <script>
-    window.CustomBackgroundImage = "https://bing.img.run/rand_uhd.php"; /* 页面背景图 */
-    window.CustomMobileBackgroundImage = "https://bing.img.run/rand_m.php"; /* 移动端页面背景图 */
+    window.CustomBackgroundImage = "https://api.imlcd.cn/bg/high.php?return=img"; /* 页面背景图（必应每日壁纸） */
+    window.CustomMobileBackgroundImage = "https://api.imlcd.cn/bg/high.php?return=img"; /* 移动端页面背景图 */
     /* 卡片显示上下行流量 */
     // window.ShowNetTransfer = "true";
     /* 关掉人物插图 */
@@ -105,8 +105,8 @@ window.ShowNetTransfer=true;
 
 | 变量 | 作用 | 示例值 | 想改成 | 不想要怎么办 |
 |:-----|:-----|:-------|:-------|:-------------|
-| `CustomBackgroundImage` | 桌面端背景图 | `"https://bing.img.run/rand_uhd.php"` | 换成你自己的图片直链 URL | 删掉这一行，恢复默认背景 |
-| `CustomMobileBackgroundImage` | 手机端背景图 | `"https://bing.img.run/rand_m.php"` | 同上，换手机端图片直链 | 删掉这一行 |
+| `CustomBackgroundImage` | 桌面端背景图 | `"https://api.imlcd.cn/bg/high.php?return=img"` | 换成你自己的图片直链 URL | 删掉这一行，恢复默认背景 |
+| `CustomMobileBackgroundImage` | 手机端背景图 | `"https://api.imlcd.cn/bg/high.php?return=img"` | 同上，换手机端图片直链 | 删掉这一行 |
 | `ShowNetTransfer` | 卡片显示实时上下行速率 | `true` | 保持 `true` 即可 | 删掉/注释这一行，隐藏实时速率 |
 | `DisableAnimatedMan` | 关闭右下角人物插图 | `"true"` | 一般不用改 | 删掉这一行，插图恢复显示 |
 | `CustomDesc` | 左上角描述文字 | `"v2.games"` | 换成任意文字，如 `"我的监控"` | 删掉这一行，显示默认描述 |
@@ -123,6 +123,8 @@ window.CustomBackgroundImage = "https://你的图床/背景图.jpg";  // 换成�
 - 文字和 URL 都必须用引号包住，引号里不要再出现双引号
 - 背景图必须是图片直链（`http(s)://` 开头、`.jpg/.png/.webp` 结尾），不能填网页地址
 - 不要用 `raw.githubusercontent.com` 的图片链接，国内经常打不开；用你自己的图床或对象存储
+
+找不到背景图？看 [免费随机背景图接口列表（13 个实测可用）](docs/background-image-api.md)，选一个填进去即可。
 
 ### 详情页直接展示网络波动卡片
 
