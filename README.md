@@ -6,7 +6,7 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 
 - `traffic-progress.js` 已跟进上游 `v20260803` 重构版（性能优化、防重复注入），并在其上沿用自定义颜色阈值：60%/90%，0~60% 绿色系渐变，60%~90% 转红，90% 以上深红。
 
-## 怎么用（先看这里）
+## 快速开始
 
 脚本分两类，粘贴位置不同：
 
@@ -17,6 +17,12 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 
 位置：后台 **系统设置 → 自定义代码（样式和脚本）** / **仪表板的自定义代码**。
 
+最常用的是流量进度条，见下方 [流量进度条](#流量进度条最常用)。
+
+## 流量进度条（最常用）
+
+在 **自定义代码（样式和脚本）** 里粘贴，效果：服务器卡片下方显示周期性流量进度条（已用/总量、百分比、周期日期）。
+
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/docs/traffic-script-setup.jpg"
        alt="哪吒面板自定义代码添加位置"
@@ -26,7 +32,7 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
   <em>↑ 在面板这里填入下面的代码</em>
 </p>
 
-最基础的用法（只显示流量进度条），在 **自定义代码（样式和脚本）** 里粘贴：
+### 基础用法（推荐，直接复制）
 
 ```html
 <script>
@@ -34,6 +40,29 @@ window.ShowNetTransfer=true;
 </script>
 <script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
 ```
+
+### 完整配置（可选）
+
+需要调整刷新间隔、切换动画等时，用下面这份：
+
+```html
+<script>
+window.ShowNetTransfer=true;
+</script>
+<script>
+  window.TrafficScriptConfig = {
+    showTrafficStats: true,    // 显示流量统计
+    insertAfter: true,         // 如果开启总流量卡片, 放置在总流量卡片后面
+    interval: 60000,           // 60秒刷新缓存, 单位毫秒
+    toggleInterval: 4000,      // 4秒切换流量进度条右上角内容, 0秒不切换, 单位毫秒
+    duration: 500,             // 缓进缓出切换时间, 单位毫秒
+    enableLog: false           // 开启日志
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
+```
+
+颜色阈值：0~60% 绿色系渐变，60%~90% 转红，90% 以上深红。
 
 ## 脚本总览
 
@@ -47,9 +76,9 @@ window.ShowNetTransfer=true;
 | `nezha-dashboard.css` | 配合上方脚本的样式（字体、隐藏页脚） | 仪表板的自定义代码 |
 | `nezha-itdog.js` | 服务器 IP 旁加 Ping / TCPing 按钮（修复 IPv4:port 误判 IPv6） | 仪表板的自定义代码 |
 
-## 使用方式
+## 其他功能
 
-###### 1. 后台基础美化（nezha-style.css + 探针变量）
+### 后台基础美化（nezha-style.css + 探针变量）
 在 **自定义代码（样式和脚本）** 中粘贴：
 
 ```html
@@ -79,27 +108,7 @@ window.ShowNetTransfer=true;
 | `DisableAnimatedMan` | 设为 `"true"` 时关闭人物插图 |
 | `CustomDesc` | 自定义描述文字 |
 
-###### 2. 周期性流量进度条（新版 v20260803，推荐）
-在 **自定义代码（样式和脚本）** 中粘贴：
-
-```html
-<script>
-window.ShowNetTransfer=true;
-</script>
-<script>
-  window.TrafficScriptConfig = {
-    showTrafficStats: true,    // 显示流量统计
-    insertAfter: true,         // 如果开启总流量卡片, 放置在总流量卡片后面
-    interval: 60000,           // 60秒刷新缓存, 单位毫秒
-    toggleInterval: 4000,      // 4秒切换流量进度条右上角内容, 0秒不切换, 单位毫秒
-    duration: 500,             // 缓进缓出切换时间, 单位毫秒
-    enableLog: false           // 开启日志
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
-```
-
-###### 3. 详情页直接展示网络波动卡片
+### 详情页直接展示网络波动卡片
 在 **自定义代码（样式和脚本）** 中粘贴（无需配置，自动生效）：
 
 ```html
@@ -108,7 +117,7 @@ window.ShowNetTransfer=true;
 
 效果：点进服务器详情页时，直接同时展示"详情"和"网络"两个图表，不用再手动点"网络"Tab。
 
-###### 4. 页面时间修改（大号数字时钟）
+### 页面时间修改（大号数字时钟）
 在 **自定义代码（样式和脚本）** 中粘贴（无需配置，自动生效）：
 
 ```html
@@ -117,7 +126,7 @@ window.ShowNetTransfer=true;
 
 效果：首页时间改为大号发光数字时钟，隐藏"当前时间"文字。
 
-###### 5. 仪表板的自定义代码（首页美化 + IP 测速按钮）
+### 仪表板美化 + IP 测速按钮
 在 **仪表板的自定义代码** 中粘贴：
 
 ```html
