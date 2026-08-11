@@ -100,15 +100,30 @@ window.ShowNetTransfer=true;
 </script>
 ```
 
-可配置项：
+### 怎么改这些配置
 
-| 变量 | 作用 |
-|:-----|:-----|
-| `CustomBackgroundImage` | 桌面端背景图 URL |
-| `CustomMobileBackgroundImage` | 移动端背景图 URL |
-| `ShowNetTransfer` | 设为 `"true"` 时卡片显示上下行流量 |
-| `DisableAnimatedMan` | 设为 `"true"` 时关闭人物插图 |
-| `CustomDesc` | 自定义描述文字 |
+所有配置都改**引号里的值**，改完点保存，刷新页面生效：
+
+| 变量 | 作用 | 示例值 | 想改成 | 不想要怎么办 |
+|:-----|:-----|:-------|:-------|:-------------|
+| `CustomBackgroundImage` | 桌面端背景图 | `"https://bing.img.run/rand_uhd.php"` | 换成你自己的图片直链 URL | 删掉这一行，恢复默认背景 |
+| `CustomMobileBackgroundImage` | 手机端背景图 | `"https://bing.img.run/rand_m.php"` | 同上，换手机端图片直链 | 删掉这一行 |
+| `ShowNetTransfer` | 卡片显示实时上下行速率 | `true` | 保持 `true` 即可 | 删掉/注释这一行，隐藏实时速率 |
+| `DisableAnimatedMan` | 关闭右下角人物插图 | `"true"` | 一般不用改 | 删掉这一行，插图恢复显示 |
+| `CustomDesc` | 左上角描述文字 | `"v2.games"` | 换成任意文字，如 `"我的监控"` | 删掉这一行，显示默认描述 |
+
+修改示例：
+
+```javascript
+window.CustomDesc = "哈基米的小鸡们";          // 把引号里的文字换成你想要的
+window.CustomBackgroundImage = "https://你的图床/背景图.jpg";  // 换成你的图片直链
+```
+
+注意事项：
+
+- 文字和 URL 都必须用引号包住，引号里不要再出现双引号
+- 背景图必须是图片直链（`http(s)://` 开头、`.jpg/.png/.webp` 结尾），不能填网页地址
+- 不要用 `raw.githubusercontent.com` 的图片链接，国内经常打不开；用你自己的图床或对象存储
 
 ### 详情页直接展示网络波动卡片
 在 **自定义代码（样式和脚本）** 中粘贴（无需配置，自动生效）：
