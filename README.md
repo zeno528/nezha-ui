@@ -41,6 +41,8 @@ window.ShowNetTransfer=true;
 <script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
 ```
 
+> `window.ShowNetTransfer=true` 是面板的全局变量开关，作用是让服务器卡片显示实时上下行速率（K/s）。它是可选项，删掉不影响流量进度条，只是卡片不再显示实时速率。
+
 ### 完整配置（可选）
 
 需要调整刷新间隔、切换动画等时，用下面这份：
