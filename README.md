@@ -4,8 +4,8 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 
 ## 与原版的区别
 
-- `traffic-progress.js` 已跟进上游 `v20260803` 重构版（性能优化、防重复注入），颜色阈值与作者原版一致（35%/85%）。
-- `traffic-progress-legacy.js` 为旧版备份：进度条颜色阈值调整为 60%/90%，0~60% 保持绿色系渐变，60%~90% 转红，90% 以上深红。需要旧阈值时使用该脚本。
+- `traffic-progress.js` 已跟进上游 `v20260803` 重构版（性能优化、防重复注入），并在其上沿用自定义颜色阈值：60%/90%，0~60% 绿色系渐变，60%~90% 转红，90% 以上深红。
+- `traffic-progress-legacy.js` 为旧版备份：同样的 60%/90% 阈值，但不含上游新版的性能优化。仅在新版异常时备用。
 
 ## 使用方式
 
@@ -27,7 +27,7 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
     window.CustomDesc = "v2.games";
 </script>
 ```
-###### 周期性流量进度条（新版 v20260803，阈值 35/85）
+###### 周期性流量进度条（新版 v20260803，阈值 60/90）
 ```html
 /* 周期性流量进度条 */
 <script>

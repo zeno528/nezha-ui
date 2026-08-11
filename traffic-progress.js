@@ -103,18 +103,18 @@
     let s;
     let l;
 
-    if (p <= 35) {
-      const t = p / 35;
-      h = lerp(142, 32, t);
+    if (p <= 60) {
+      const t = p / 60;
+      h = lerp(142, 90, t);  // 绿色到黄绿
       s = lerp(69, 85, t);
       l = lerp(45, 55, t);
-    } else if (p <= 85) {
-      const t = (p - 35) / 50;
-      h = lerp(32, 0, t);
+    } else if (p <= 90) {
+      const t = (p - 60) / 30;
+      h = lerp(90, 0, t);    // 黄绿到红色
       s = lerp(85, 75, t);
       l = lerp(55, 50, t);
     } else {
-      const t = (p - 85) / 15;
+      const t = (p - 90) / 10;
       h = 0;
       s = 75;
       l = lerp(50, 45, t);
