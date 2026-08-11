@@ -15,8 +15,6 @@
   <img src="https://img.shields.io/badge/主题-NezhaDash-purple" alt="NezhaDash">
 </p>
 
-基于 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui) 修改。流量进度条已跟进上游 `v20260803` 重构版，并自定义颜色阈值 60%/90%。
-
 ## 脚本总览
 
 | 文件 | 作用 | 粘贴位置 |
@@ -197,4 +195,4 @@ jsdelivr 有缓存，等几分钟即可。若 `cdn.jsdelivr.net` 加载异常（
 
 ## 致谢
 
-- 原作者：[ziwiwiz](https://github.com/ziwiwiz/nezha-ui)
+本项目基于 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui) 修改：流量进度条跟进上游 `v20260803` 重构版，并自定义颜色阈值 60%/90%。感谢原作者 [ziwiwiz](https://github.com/ziwiwiz/nezha-ui)。
