@@ -1,10 +1,6 @@
 # nezha-ui
 
-Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人使用习惯做了调整。
-
-## 与原版的区别
-
-- `traffic-progress.js` 已跟进上游 `v20260803` 重构版（性能优化、防重复注入），并在其上沿用自定义颜色阈值：60%/90%，0~60% 绿色系渐变，60%~90% 转红，90% 以上深红。
+基于 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui) 修改。流量进度条已跟进上游 `v20260803` 重构版，并自定义颜色阈值 60%/90%。
 
 ## 脚本总览
 
@@ -17,8 +13,6 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 | `nezha-dashboard.js` | 首页美化：自定义左上角标题、禁用动画、MiSans 字体 | 仪表板的自定义代码 |
 | `nezha-dashboard.css` | 配合上方脚本的样式（字体、隐藏页脚） | 仪表板的自定义代码 |
 | `nezha-itdog.js` | 服务器 IP 旁加 Ping / TCPing 按钮（修复 IPv4:port 误判 IPv6） | 仪表板的自定义代码 |
-
-整个面板只有这两个粘贴位置，没有其他入口。`window.*` 全局变量（背景图、描述、ShowNetTransfer 等）只被用户前端读取，**必须放在"自定义代码（样式和脚本）"里**，放"仪表板的自定义代码"不会生效。
 
 ---
 
@@ -70,8 +64,6 @@ window.ShowNetTransfer=true;
 </script>
 <script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
 ```
-
-颜色阈值：0~60% 绿色系渐变，60%~90% 转红，90% 以上深红。
 
 ### 后台基础美化（背景图、描述、实时流量）
 
@@ -177,7 +169,7 @@ window.CustomBackgroundImage = "https://你的图床/背景图.jpg";  // 换成�
 ## 常见问题
 
 **流量进度条不显示？**
-确认 `window.ShowNetTransfer=true;` 和脚本引用都粘贴在 **自定义代码（样式和脚本）** 里，且只加载了一个 traffic-progress 脚本。
+确认 `window.ShowNetTransfer=true;` 和脚本引用都粘贴在 **自定义代码（样式和脚本）** 里。
 
 **改了脚本没生效？**
 jsdelivr 有缓存，等几分钟即可。若 `cdn.jsdelivr.net` 加载异常（如 DNS 污染），可换成 jsdelivr 的其他 CDN 端点（实测均可用）：
