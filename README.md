@@ -1,4 +1,19 @@
-# nezha-ui
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/docs/logo.svg" width="48" alt="NeZha UI logo">
+</p>
+
+<h1 align="center">NeZha UI</h1>
+
+<p align="center">
+  <em>哪吒监控面板 UI 增强脚本集 · 流量进度条 / 美化 / 网络波动</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/zeno528/nezha-ui" alt="stars">
+  <img src="https://img.shields.io/jsdelivr/gh/hm/zeno528/nezha-ui" alt="jsdelivr">
+  <img src="https://img.shields.io/badge/NeZha-v2-blue" alt="NeZha v2">
+  <img src="https://img.shields.io/badge/主题-NezhaDash-purple" alt="NezhaDash">
+</p>
 
 基于 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui) 修改。流量进度条已跟进上游 `v20260803` 重构版，并自定义颜色阈值 60%/90%。
 
