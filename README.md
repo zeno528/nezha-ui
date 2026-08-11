@@ -5,7 +5,6 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 ## 与原版的区别
 
 - `traffic-progress.js` 已跟进上游 `v20260803` 重构版（性能优化、防重复注入），并在其上沿用自定义颜色阈值：60%/90%，0~60% 绿色系渐变，60%~90% 转红，90% 以上深红。
-- `traffic-progress-legacy.js` 为旧版备份：同样的 60%/90% 阈值，但不含上游新版的性能优化。仅在新版异常时备用。
 
 ## 怎么用（先看这里）
 
@@ -41,7 +40,6 @@ window.ShowNetTransfer=true;
 | 文件 | 作用 | 粘贴位置 |
 |:-----|:-----|:---------|
 | `traffic-progress.js` | 服务器卡片下方显示周期性流量进度条（用量/总量/百分比/周期日期） | 自定义代码（样式和脚本） |
-| `traffic-progress-legacy.js` | 同上，旧版备份（无新版性能优化） | 自定义代码（样式和脚本） |
 | `nezha-style.css` | 探针页面美化（毛玻璃卡片、自定义背景图、边框阴影） | 自定义代码（样式和脚本） |
 | `netstatus-autoshow.js` | 详情页直接展示网络波动图表，不用手动点"网络"Tab | 自定义代码（样式和脚本） |
 | `nezha-time.css` | 首页时间改为大号发光数字时钟 | 自定义代码（样式和脚本） |
@@ -101,29 +99,7 @@ window.ShowNetTransfer=true;
 <script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
 ```
 
-> 新版与旧版备份二选一，**不要同时加载**。
-
-###### 3. 周期性流量进度条（旧版备份 v20250617）
-在 **自定义代码（样式和脚本）** 中粘贴：
-
-```html
-<script>
-window.ShowNetTransfer=true;
-</script>
-<script>
-  window.TrafficScriptConfig = {
-    showTrafficStats: true,    // 显示流量统计
-    insertAfter: true,         // 如果开启总流量卡片, 放置在总流量卡片后面
-    interval: 60000,           // 60秒刷新缓存, 单位毫秒
-    toggleInterval: 5000,      // 5秒切换流量进度条右上角内容, 0秒不切换, 单位毫秒
-    duration: 500,             // 缓进缓出切换时间, 单位毫秒
-    enableLog: false           // 开启日志
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress-legacy.js"></script>
-```
-
-###### 4. 详情页直接展示网络波动卡片
+###### 3. 详情页直接展示网络波动卡片
 在 **自定义代码（样式和脚本）** 中粘贴（无需配置，自动生效）：
 
 ```html
@@ -132,7 +108,7 @@ window.ShowNetTransfer=true;
 
 效果：点进服务器详情页时，直接同时展示"详情"和"网络"两个图表，不用再手动点"网络"Tab。
 
-###### 5. 页面时间修改（大号数字时钟）
+###### 4. 页面时间修改（大号数字时钟）
 在 **自定义代码（样式和脚本）** 中粘贴（无需配置，自动生效）：
 
 ```html
@@ -141,7 +117,7 @@ window.ShowNetTransfer=true;
 
 效果：首页时间改为大号发光数字时钟，隐藏"当前时间"文字。
 
-###### 6. 仪表板的自定义代码（首页美化 + IP 测速按钮）
+###### 5. 仪表板的自定义代码（首页美化 + IP 测速按钮）
 在 **仪表板的自定义代码** 中粘贴：
 
 ```html
