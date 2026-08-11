@@ -18,7 +18,14 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 
 位置：后台 **系统设置 → 自定义代码（样式和脚本）** / **仪表板的自定义代码**。
 
-![哪吒面板自定义代码添加位置](https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/docs/traffic-script-setup.jpg)
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/docs/traffic-script-setup.jpg"
+       alt="哪吒面板自定义代码添加位置"
+       width="75%"
+       style="border: 2px solid #d0d7de; border-radius: 8px;">
+  <br>
+  <em>↑ 在面板这里填入下面的代码</em>
+</p>
 
 最基础的用法（只显示流量进度条），在 **自定义代码（样式和脚本）** 里粘贴：
 
