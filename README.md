@@ -10,6 +10,10 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 ## 使用方式
 
 ###### 后台添加
+在面板 **系统设置 → 自定义代码（样式和脚本）** 中填入以下代码：
+
+![哪吒面板自定义代码添加位置](docs/traffic-script-setup.jpg)
+
 ###### 自用的探针更改
 ```html
 <meta name="referrer" content="no-referrer">
@@ -42,8 +46,21 @@ Fork 自 [ziwiwiz/nezha-ui](https://github.com/ziwiwiz/nezha-ui)，基于个人�
 </script>
 <script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress.js"></script>
 ```
-###### 周期性流量进度条（旧版备份，阈值 60/90）
+> 新版与旧版备份二选一，**不要同时加载**。
+
+###### 周期性流量进度条（旧版备份 v20250617，阈值 60/90）
 ```html
+/* 周期性流量进度条（旧版） */
+<script>
+  window.TrafficScriptConfig = {
+    showTrafficStats: true,    // 显示流量统计
+    insertAfter: true,         // 如果开启总流量卡片, 放置在总流量卡片后面
+    interval: 60000,           // 60秒刷新缓存, 单位毫秒
+    toggleInterval: 5000,      // 5秒切换流量进度条右上角内容, 0秒不切换, 单位毫秒
+    duration: 500,             // 缓进缓出切换时间, 单位毫秒
+    enableLog: false           // 开启日志
+  };
+</script>
 <script src="https://cdn.jsdelivr.net/gh/zeno528/nezha-ui@main/traffic-progress-legacy.js"></script>
 ```
 ###### 哪吒详情页直接展示网络波动卡片
